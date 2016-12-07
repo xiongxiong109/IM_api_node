@@ -1,0 +1,23 @@
+extends layout
+block content
+	h1 #{title}
+	h4 用户昵称: #{uname}
+	p #{token}
+	form#im
+		input#mes(placeholder="请输入内容")
+	script(src="/js/NIM_Web_NIM.js")
+	script(src="/js/chatroom.js")
+	script.
+		var UNAME = "#{uname}";
+		var TO_UNAME = "#{toUname}";
+		var nim = NIM.getInstance({
+			debug: true,
+			appKey: "#{AppKey}",
+			account: "#{uname}",
+			token: "#{token}",
+			onmsg: onMsg,
+			onconnect: onConnect,
+			onwillreconnect: onWillReconnect,
+			ondisconnect: onDisconnect,
+			onerror: onError
+		});
