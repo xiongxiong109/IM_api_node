@@ -25,8 +25,9 @@ function onDisconnect() {
 }
 function onMsg (msg) {
 	console.log("收到消息", msg.text);
+	console.log(msg);
 	var p = document.createElement('p');
-	p.innerHTML = TO_UNAME + ":" + msg.text;
+	p.innerHTML = msg.from + ":" + msg.text;
 	document.body.appendChild(p);
 }
 function onError(error) {

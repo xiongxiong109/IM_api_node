@@ -21,3 +21,12 @@ block content
 			ondisconnect: onDisconnect,
 			onerror: onError
 		});
+		// 获取本地历史记录
+		nim.getLocalMsgs({
+			sessionId: 'p2p-account',
+			to: 'hailong',
+			done: function(err, obj) {
+				console.log('本地历史记录');
+				console.log(obj);
+			}
+		})
